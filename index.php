@@ -29,34 +29,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tugas 1 Pemrograman PHP</title>
+    <title>Tugas 1 - PHP</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="card">
-        <h2>Form Nilai Ujian</h2>
-        <form method="post">
-            <label>Nama</label>
-            <input type="text" name="nama" value="<?= htmlspecialchars($_POST['nama'] ?? '') ?>">
-            <label>Email</label>
-            <input type="text" name="email" value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
-            <label>Nilai Ujian</label>
-            <input type="number" name="nilai" min="0" max="100" value="<?= htmlspecialchars($_POST['nilai'] ?? '') ?>">
-            <button type="submit">Kirim</button>
-        </form>
+        <h1>FORMULIR NILAI UJIAN</h1>
+        <p class="sub">Masukkan data diri dan nilai ujian untuk melihat hasil kelulusan.</p>
 
         <?php foreach ($errors as $e): ?>
             <div class="error"><?= htmlspecialchars($e) ?></div>
         <?php endforeach; ?>
 
+        <form method="post">
+            <div class="field">
+                <label>Nama Lengkap</label>
+                <input type="text" name="nama" placeholder="Masukkan nama lengkap Anda..." value="<?= htmlspecialchars($_POST['nama'] ?? '') ?>">
+            </div>
+            <div class="field">
+                <label>Email</label>
+                <input type="text" name="email" placeholder="contoh@gmail.com" value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
+            </div>
+            <div class="field">
+                <label>Nilai Ujian</label>
+                <input type="number" name="nilai" min="0" max="100" placeholder="0 - 100" value="<?= htmlspecialchars($_POST['nilai'] ?? '') ?>">
+            </div>
+            <button type="submit">Periksa Hasil Ujian</button>
+        </form>
+
         <?php if ($hasil): ?>
             <div class="hasil">
-                <p>Nama: <?= htmlspecialchars($hasil['nama']) ?></p>
-                <p>Email: <?= htmlspecialchars($hasil['email']) ?></p>
-                <p>Nilai: <?= $hasil['nilai'] ?></p>
-                <p>Status: <span class="<?= $hasil['status'] ?>"><?= $hasil['status'] ?></span></p>
+                <h3>Hasil Pemeriksaan</h3>
+                <div class="baris"><span>Nama</span><span><?= htmlspecialchars($hasil['nama']) ?></span></div>
+                <div class="baris"><span>Email</span><span><?= htmlspecialchars($hasil['email']) ?></span></div>
+                <div class="baris"><span>Nilai</span><span><?= $hasil['nilai'] ?></span></div>
+                <div class="status <?= $hasil['status'] ?>"><?= strtoupper($hasil['status']) ?></div>
             </div>
         <?php endif; ?>
+
+        <p class="footer">Muhamad Wildan - STTNF - Tugas 1 - Pemrograman PHP</p>
     </div>
 </body>
 </html>
