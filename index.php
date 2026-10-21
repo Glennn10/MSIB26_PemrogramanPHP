@@ -30,17 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tugas 1 Pemrograman PHP</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f2f4f8; display: flex; justify-content: center; padding: 40px; }
-        .card { background: #fff; padding: 24px; border-radius: 10px; width: 360px; box-shadow: 0 2px 8px rgba(0,0,0,.1); }
-        label { display: block; margin-top: 12px; font-weight: bold; }
-        input { width: 100%; padding: 8px; margin-top: 4px; box-sizing: border-box; }
-        button { margin-top: 16px; width: 100%; padding: 10px; background: #2563eb; color: #fff; border: 0; border-radius: 6px; cursor: pointer; }
-        .error { color: #b91c1c; margin-top: 12px; }
-        .hasil { margin-top: 20px; padding: 12px; border-radius: 6px; background: #eef2ff; }
-        .Lulus { color: #15803d; font-weight: bold; }
-        .Remedial { color: #b91c1c; font-weight: bold; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="card">
